@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<!--
+       The DOCTYPE = HTML5
+-->
+<html lang="en">
+    <!--
+       The language attribute is English as its value.
+    -->
+
+   <head>
+       <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <meta name="description" content="Page for Madison Swain's personal website.">
+       <meta name="keywords" content="information literacy, information tools, personal, resume, about">
+       <title> Madison Swain Website </title>
+       <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/style.css') }}">
+       <style>
+            h3 {color:hsl(279, 100%, 50%); font-style:italic; font-size:30px;}
+            body {font-family: 'Roboto', sans-serif; margin: 0; padding: 0; background-color: var(--background-color); line-height: 1.6;}
+            header {background-color: var(--primary-bg-color); color: var(--primary-text-color); padding: 2rem; text-align: center; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);}
+       </style>
+       <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+   </head>
+
+   <body>
+       <!-- Home Section -->
+       <header style = "background-color: rgb(124, 60, 156); color: white;">
+            <h1> Welcome to Madison's Personal Website</h1>
+            <p>Contact: 
+                <script>
+                    var user = "swainm";
+                    var domain = "unc.edu";
+                    document.write('<a href="mailto:' + user + '@' + domain + '">' + user + '@' + domain + '</a>');
+                </script>
+            </p>
+            <nav>
+                <a href="#about">About Me</a> | 
+                <a href="#classes">Classes</a> | 
+                <a href="#interests">Interests</a>
+            </nav>
+        </header>
+
+        <h2 id="greeting"></h2> <!-- Greeting will appear here.-->
+
+        <!-- About Section -->
+        <section id="about">
+            <h2>About Me</h2>
+            <div style = "text-align: center;">
+                <img src="{{ url_for('static', filename='images/Madison_Headshot.JPG') }}" alt="Madison Swain" style="max-width: 200px; height: auto; border-radius: 50%;">
+                <p>A third-year student at the University of North Carolina at Chapel Hill, double majoring in Advertising and Public Relations at the Hussman School of Journalism and Media and Information Science, with a Certificate in Business Communication.</p>
+                <a href="{{ url_for('static', filename='resumes/Madison_Swain_Resume.pdf') }}" target="_blank">View my Resume (PDF)</a>
+            </div>
+        </section>
+
+        <!-- Classes Section -->
+        <section id="classes">
+            <h2>Current Classes</h2>
+            <ul>
+                <li><a href="https://ils.unc.edu/courses/2024_fall/inls161_001/s01.syllabus.html">INLS 161</a></li>
+                <li><a href="https://ils.unc.edu/courses/2024_fall/inls201_001/">INLS 201</a></li>
+                <li><a href="https://uncch.instructure.com/courses/67160">MEJO 137</a></li>
+                <li><a href="https://uncch.instructure.com/courses/67195">MEJO 153</a></li>
+                <li><a href="https://uncch.instructure.com/courses/67433">MEJO 467</a></li>
+            </ul>
+        </section>
+
+        <!-- Interests Section -->
+        <section id="interests">
+            <h2>Interests</h2>
+            <ol>
+                <li>The Book Thief</li>
+                <li>Pride and Prejudice</li>
+                <li>Harry Potter and the Deathly Hallows</li>
+                <li>The Great Gatsby</li>
+                <li>Canon of Sherlock Holmes</li>
+                <li>Rebecca</li>
+                <li>The Secret History</li>
+                <li>Gone Girl</li>
+                <li>Lord of the Rings</li>
+                <li>All the Light We Cannot See</li>
+            </ol>
+        </section>
+
+        <footer>
+            <p>Last updated: <script>document.write(new Date ().toLocaleDateString());</script></p>
+        </footer>
+
+        <script>
+            window.onload = function() {
+                const today = new Date();
+                const hour = today.getHours();
+                let greeting;
+
+                if (hour < 12) {
+                    greeting = "Good morning!";
+                } else if (hour < 18) {
+                    greeting = "Good afternoon!";
+                } else {
+                    greeting = "Good evening!";
+                }
+            
+                document.getElementById("greeting").textContent = greeting;
+            };
+        </script>
+    </body>
+</html>
